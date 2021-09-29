@@ -1,0 +1,6 @@
+Feature story Extration
+
+Copy fol folder to your local device.
+Open package_create.py
+Modify the year in the base link and r variable that you want to create the package.
+Now when you run the package_create.py all the feature story of that year will be created in tha package along with the required file.
