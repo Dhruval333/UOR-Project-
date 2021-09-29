@@ -80,7 +80,7 @@ for link in storylinks:
     if not os.path.exists(m):
         os.makedirs(m)
 
-    #Bypass pages
+    #Bypass pages encoding error
     if (month == '08-August' and day == '30' or day == '13'): 
       continue
     # if (month == '08-August' and day == '22' or day == '17'or day == '11' or day == '08' or day == '07' or day == '04'): 
