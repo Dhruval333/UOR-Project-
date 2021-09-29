@@ -39,14 +39,7 @@ for link in storylinks:
         <title>University of Regina - External Relations</title>
 
 
-        <link rel="stylesheet" href="global.css" />
-        <link rel="stylesheet" href="secondary.css" />
-        <link rel="stylesheet" href="site.css" />
-        <link media="print" rel="stylesheet" type="text/css" href="print.css"  />
-
-        <!--[if IE]>
-        <link media="screen" rel="stylesheet" type="text/css" href="global-ie.css"  />
-        <![endif]-->    
+        <link rel="stylesheet" href="combine.css" />  
 
       </head>
 
