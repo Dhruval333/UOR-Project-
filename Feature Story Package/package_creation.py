@@ -81,11 +81,16 @@ for link in storylinks:
     if not os.path.exists(m):
         os.makedirs(m)
 
-    #Bypass pages encoding error
-    if (month == '08-August' and day == '30' or day == '13'): 
-      continue
-    # if (month == '08-August' and day == '22' or day == '17'or day == '11' or day == '08' or day == '07' or day == '04'): 
+   # Bypass pages
+    # 2019
+    # if (month == '08-August' and day == '30' or day == '13'): 
     #   continue
+    # 2020
+    # if ((month == '12-December' and day == '17'or day == '11' or day == '08' or day == '07' or day == '04') or (month == '11-November' and day == '19' or day == '18') or (month == '10-October' and day == '29')or (month == '09-September' and day == '29' or day == '01') or (month == '07-July' and day == '21' or day == '15' or day == '14')): 
+    #   continue
+    # 2021
+    # if ((month == '09-September' and day == '14') or (month == '08-August' and day == '03')or (month == '07-July' and day == '23' or day == '16' or day == '12') or (month == '06-June' and day == '25' or day == '18' or day == '10' or day=='04') or (month == '05-May' and day == '31' or day == '25' or day == '17' or day == '03') or (month == '04-April' and day == '30' or day == '08') or (month == '03-March' and day == '29' or day == '15' )or (month == '02-February' and day == '02') or (month == '01-January' and day == '28' or day == '27' or day == '26' or day == '25')): 
+    #    continue
 
     new_fld = ("Feature_%s" %date)
     folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'% (year,month),new_fld)
