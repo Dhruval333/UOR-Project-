@@ -73,6 +73,7 @@ for link in storylinks:
     # Creating month file
     if not os.path.exists(year):
       os.makedirs(year)
+    # Change the path that user wants the folder to create
     m = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/'%year,month)
     if not os.path.exists(m):
         os.makedirs(m)
@@ -92,9 +93,12 @@ for link in storylinks:
         continue
 
     new_fld = ("Feature_%s" %date)
+    # Change/Assign the path 
     folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'% (year,month),new_fld)
     filename = ("Feature_%s.html" % date)
     file = os.path.join(folder,filename)
+    
+    #Path of the CSS file  
     src_file = "/Users/Admin/Documents/WORK/testenv/fol"
     
     #Creating sub folder 
@@ -106,6 +110,8 @@ for link in storylinks:
         folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'%(year,month),new_fld)
         file = os.path.join(folder,filename)
         src_file = "/Users/Admin/Documents/WORK/testenv/fol"
+        
+        #Bypass sub-folders for windows
         if (new_fld == 'Feature_2020-12-22(1)' or new_fld == 'Feature_2020-09-22(1)'or new_fld == 'Feature_2020-08-25(1)'):
           continue
         os.makedirs(folder)
@@ -121,10 +127,13 @@ for link in storylinks:
     for link_new in lin.findAll('img',src=True):
       story = baseurl + link_new['src']
       name = link_new['src']
+      #Bypass dead photo links 
       if story == 'https://www.uregina.ca/external/communications/feature-stories/current/2019/https://cascade.uregina.ca:8443/render/file.act?path=feature-stories/current/2019/images/theFalls-3.png':
         continue
       if name == 'https://counter.theconversation.com/content/151769/count.gif?distributor=republish-lightbox-advanced':
         continue
+       
+      #image naming
       name = name.replace('../2018/','').replace('images/','').replace('/','').replace('//','').replace('../','').replace('..','')
       f = open("" + folder + '/' + name + '','wb')
       im = urq.get(story)
