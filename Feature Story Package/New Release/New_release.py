@@ -92,10 +92,10 @@ for link in storylinks:
       if ((month == '12-December' and day == '17'or day == '11' or day == '08' or day == '07' or day == '04') or (month == '11-November' and day == '19' or day == '18') or (month == '10-October' and day == '29')or (month == '09-September' and day == '29' or day == '01') or (month == '07-July' and day == '21' or day == '15' or day == '14')): 
         continue
 
-    new_fld = ("Feature_%s" %date)
+    new_fld = ("Release_%s" %date)
     # Change/Assign the path 
     folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'% (year,month),new_fld)
-    filename = ("Feature_%s.html" % date)
+    filename = ("Release_%s.html" % date)
     file = os.path.join(folder,filename)
     
     #Path of the CSS file  
@@ -105,14 +105,14 @@ for link in storylinks:
     if os.path.exists(folder):
 
         store_count[str(folder)]+= 1
-        new_fld = ("Feature_%s" % date)+"("+ str(store_count[str(folder)]) +")"
-        filename = ("Feature_%s" % date)+"("+ str(store_count[str(folder)]) +")" + ".html"
+        new_fld = ("Release_%s" % date)+"("+ str(store_count[str(folder)]) +")"
+        filename = ("Release_%s" % date)+"("+ str(store_count[str(folder)]) +")" + ".html"
         folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'%(year,month),new_fld)
         file = os.path.join(folder,filename)
         src_file = "/Users/Admin/Documents/WORK/testenv/fol"
         
         #Bypass sub-folders for windows
-        if (new_fld == 'Feature_2020-12-22(1)' or new_fld == 'Feature_2020-09-22(1)'or new_fld == 'Feature_2020-08-25(1)'):
+        if (new_fld == 'Release_2020-12-22(1)' or new_fld == 'Release_2020-09-22(1)'or new_fld == 'Release_2020-08-25(1)'):
           continue
         os.makedirs(folder)
       
