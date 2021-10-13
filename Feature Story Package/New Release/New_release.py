@@ -74,7 +74,7 @@ for link in storylinks:
     if not os.path.exists(year):
       os.makedirs(year)
     # Change the path that user wants the folder to create
-    m = os.path.join('./testenv/%s/'%year,month)
+    m = os.path.join('./%s/'%year,month)
     if not os.path.exists(m):
         os.makedirs(m)
 
@@ -94,12 +94,12 @@ for link in storylinks:
 
     new_fld = ("Release_%s" %date)
     # Change/Assign the path 
-    folder = os.path.join('./testenv/%s/%s/'% (year,month),new_fld)
+    folder = os.path.join('./%s/%s/'% (year,month),new_fld)
     filename = ("Release_%s.html" % date)
     file = os.path.join(folder,filename)
     
     #Path of the CSS file  
-    src_file = "./testenv/CSS"
+    src_file = "./combine.css"
     
     #Creating sub folder 
     if os.path.exists(folder):
@@ -107,9 +107,9 @@ for link in storylinks:
         store_count[str(folder)]+= 1
         new_fld = ("Release_%s" % date)+"("+ str(store_count[str(folder)]) +")"
         filename = ("Release_%s" % date)+"("+ str(store_count[str(folder)]) +")" + ".html"
-        folder = os.path.join('./testenv/%s/%s/'%(year,month),new_fld)
+        folder = os.path.join('./%s/%s/'%(year,month),new_fld)
         file = os.path.join(folder,filename)
-        src_file = "./testenv/CSS"
+        src_file = "./combine.css"
         
         #Bypass sub-folders for windows
         if (new_fld == 'Release_2020-12-22(1)' or new_fld == 'Release_2020-09-22(1)'or new_fld == 'Release_2020-08-25(1)'):
@@ -120,9 +120,7 @@ for link in storylinks:
         store_count[str(folder)] = int(0)
         os.makedirs(folder)
 
-    for f in os.listdir(src_file):
-      filepath = os.path.join(src_file,f)
-      shutil.copy(filepath,folder)
+    shutil.copy(src_file,folder)
 
     for link_new in lin.findAll('img',src=True):
       story = baseurl + link_new['src']
