@@ -147,9 +147,9 @@ for link in storylinks:
     f = open(file,"w", encoding='utf-8')
     f.write(htmlstr)
     f.close()
-    f = open(file,"r")
+    f = open(file,"r", encoding='utf-8')
     temp = f.readlines()
     temp = [line % {'ads_block': body} for line in temp]   # %(ads_block)s
-    f = open(file,"w")
+    f = open(file,"w", encoding='utf-8')
     f.writelines(temp)
     f.close()
