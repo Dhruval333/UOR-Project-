@@ -98,7 +98,7 @@ for link in storylinks:
     file = os.path.join(folder,filename)
     
     #Write CSS folder path
-    src_file = "/Users/Admin/Documents/WORK/testenv/CSS"
+    src_file = "./testenv/CSS"
     
     #Creating sub folder 
     if os.path.exists(folder):
@@ -110,7 +110,7 @@ for link in storylinks:
         file = os.path.join(folder,filename)
         
         #Write CSS folder path
-        src_file = "/Users/Admin/Documents/WORK/testenv/CSS"
+        src_file = "./testenv/CSS"
         os.makedirs(folder)
 
     else:
