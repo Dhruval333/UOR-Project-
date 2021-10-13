@@ -77,7 +77,7 @@ for link in storylinks:
     if not os.path.exists(year):
       os.makedirs(year)
     #Provide path where folder need to be created
-    m = os.path.join('./testenv/%s/'%year,month)
+    m = os.path.join('./%s/'%year,month)
     if not os.path.exists(m):
         os.makedirs(m)
 
@@ -117,9 +117,7 @@ for link in storylinks:
         store_count[str(folder)] = int(0)
         os.makedirs(folder)
 
-    for f in os.listdir(src_file):
-      filepath = os.path.join(src_file,f)
-      shutil.copy(filepath,folder)
+    shutil.copy(src_file,folder)
 
     
     #Image download process
