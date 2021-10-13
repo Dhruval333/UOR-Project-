@@ -99,7 +99,7 @@ for link in storylinks:
     file = os.path.join(folder,filename)
     
     #Path of the CSS file  
-    src_file = "/Users/Admin/Documents/WORK/testenv/fol"
+    src_file = "./testenv/CSS"
     
     #Creating sub folder 
     if os.path.exists(folder):
@@ -109,7 +109,7 @@ for link in storylinks:
         filename = ("Release_%s" % date)+"("+ str(store_count[str(folder)]) +")" + ".html"
         folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'%(year,month),new_fld)
         file = os.path.join(folder,filename)
-        src_file = "/Users/Admin/Documents/WORK/testenv/fol"
+        src_file = "./testenv/CSS"
         
         #Bypass sub-folders for windows
         if (new_fld == 'Release_2020-12-22(1)' or new_fld == 'Release_2020-09-22(1)'or new_fld == 'Release_2020-08-25(1)'):
