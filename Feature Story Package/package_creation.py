@@ -77,7 +77,7 @@ for link in storylinks:
     if not os.path.exists(year):
       os.makedirs(year)
     #Provide path where folder need to be created
-    m = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/'%year,month)
+    m = os.path.join('./testenv/%s/'%year,month)
     if not os.path.exists(m):
         os.makedirs(m)
 
@@ -93,7 +93,7 @@ for link in storylinks:
     #    continue
 
     new_fld = ("Feature_%s" %date)
-    folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'% (year,month),new_fld)
+    folder = os.path.join('./testenv/%s/%s/'% (year,month),new_fld)
     filename = ("Featur_%s.html" % date)
     file = os.path.join(folder,filename)
     
@@ -106,7 +106,7 @@ for link in storylinks:
         store_count[str(folder)]+= 1
         new_fld = ("Feature_%s" % date)+"("+ str(store_count[str(folder)]) +")"
         filename = ("Feature_%s" % date)+"("+ str(store_count[str(folder)]) +")" + ".html"
-        folder = os.path.join('/Users/Admin/Documents/WORK/testenv/%s/%s/'%(year,month),new_fld)
+        folder = os.path.join('./testenv/%s/%s/'%(year,month),new_fld)
         file = os.path.join(folder,filename)
         
         #Write CSS folder path
