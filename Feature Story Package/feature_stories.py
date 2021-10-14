@@ -6,7 +6,11 @@ import shutil,os
 import os.path
 import sys, codecs
 
-cf = (input("Enter cutoff year:"))
+ch = input("(If you want cutoff parameter enter {y} else {n}: ")
+
+if ch == "y":
+  cf = (input("Enter cutoff year:"))
+
 baseurl = "https://www.uregina.ca/external/communications/feature-stories/"
 r = ureq('https://www.uregina.ca/external/communications/feature-stories/index.html')
 soup = BeautifulSoup(r,"html5lib")
@@ -74,9 +78,10 @@ for link in storylinks:
     </html>
     """
     #cutoff break off
-    if (year == cf):
-      print (cf)
-      break
+    if ch == "y":
+      if (year == cf):
+        print (cf)
+        break
   
     # Creating month file
     if not os.path.exists(year):
