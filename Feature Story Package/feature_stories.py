@@ -6,9 +6,9 @@ import shutil,os
 import os.path
 import sys, codecs
 
-# Change the year as per the story index required (Apply the change to both baseurl as well as r)
-baseurl = "https://www.uregina.ca/external/communications/feature-stories/current/2019/"
-r = ureq('https://www.uregina.ca/external/communications/feature-stories/current/2019/index.html')
+cf = (input("Enter cutoff year:"))
+baseurl = "https://www.uregina.ca/external/communications/feature-stories/"
+r = ureq('https://www.uregina.ca/external/communications/feature-stories/index.html')
 soup = BeautifulSoup(r,"html5lib")
 
 storylinks = []
@@ -19,6 +19,7 @@ for title in soup.find_all('td', class_='title'):
         
 # Featching data from site using soup
 for link in storylinks:
+    a = link.rsplit("/", 1)[0] + "/"
     r = ureq(link)
     soup = BeautifulSoup(r,"html5lib")
     date = soup.find('span', class_='date').text
@@ -72,7 +73,11 @@ for link in storylinks:
       </body>
     </html>
     """
-
+    #cutoff break off
+    if (year == cf):
+      print (cf)
+      break
+  
     # Creating month file
     if not os.path.exists(year):
       os.makedirs(year)
@@ -122,7 +127,7 @@ for link in storylinks:
     
     #Image download process
     for link_new in lin.findAll('img',src=True):
-      story = baseurl + link_new['src']
+      story = a + link_new['src']
       name = link_new['src']
        
       #Bypass dead link and image
