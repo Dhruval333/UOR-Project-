@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import shutil,os
 import os.path
 
-
+cf = (input("Enter cutoff year:"))
 baseurl = "https://www.uregina.ca/external/communications/releases/"
 r = ureq('https://www.uregina.ca/external/communications/releases/index.html')
 soup = BeautifulSoup(r,"html5lib")
