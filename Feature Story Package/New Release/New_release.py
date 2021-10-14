@@ -17,6 +17,7 @@ for title in soup.find_all('td', class_='title'):
         storylinks.append(baseurl + link['href'])
 
 for link in storylinks:
+    a = link.rsplit("/", 1)[0] + "/"
     r = ureq(link)
     soup = BeautifulSoup(r,"html5lib")
     date = soup.find('span', class_='date').text
@@ -59,16 +60,22 @@ for link in storylinks:
               </div>
 
               <!-- End Main Content Area -->
-
+              
             </div>
-
+            
           </div>
-
+          
         </div>
-
+        
       </body>
+      
     </html>
     """
+    
+    #cutoff break off
+    if (year == cf):
+      print (cf)
+      break
 
     # Creating month file
     if not os.path.exists(year):
@@ -123,7 +130,7 @@ for link in storylinks:
     shutil.copy(src_file,folder)
 
     for link_new in lin.findAll('img',src=True):
-      story = baseurl + link_new['src']
+      story = a + link_new['src']
       name = link_new['src']
       #Bypass dead photo links 
       if story == 'https://www.uregina.ca/external/communications/feature-stories/current/2019/https://cascade.uregina.ca:8443/render/file.act?path=feature-stories/current/2019/images/theFalls-3.png':
