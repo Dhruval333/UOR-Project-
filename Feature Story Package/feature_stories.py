@@ -6,6 +6,7 @@ import shutil,os
 import os.path
 import sys, codecs
 
+# Providing cutoff for year
 ch = input("(If you want cutoff parameter enter {y} else {n}: ")
 
 if ch == "y":
@@ -128,7 +129,6 @@ for link in storylinks:
         os.makedirs(folder)
 
     shutil.copy(src_file,folder)
-
     
     #Image download process
     for link_new in lin.findAll('img',src=True):
@@ -141,13 +141,13 @@ for link in storylinks:
       if name == 'https://counter.theconversation.com/content/151769/count.gif?distributor=republish-lightbox-advanced':
         continue
       name = name.replace('../2018/','').replace('images/','').replace('/','').replace('//','').replace('../','').replace('..','')
+      #Downloading images related to page
       f = open("" + folder + '/' + name + '','wb')
       im = urq.get(story)
       f.write(im.content)
       print('Writing:',name)
       f.close()
-    
-    
+      
     #Image naming
     for a in body.find_all('img',src=True):
       a['src'] = a['src'].replace('images/','').replace('../2018/','').replace('../','').replace('..','')
@@ -155,6 +155,7 @@ for link in storylinks:
       # a['src'] = a['src'].replace(a['src'],a)
       print (a['src'])
 
+    #Inputing content into template 
     f = open(file,"w", encoding='utf-8')
     f.write(htmlstr)
     f.close()
